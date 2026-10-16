@@ -28,8 +28,31 @@ public class C2_HiddenWordHardMode {
 
             while (scanner.hasNextLine()) {
                 String line = scanner.nextLine();
+                int line_number = 0;
+                //add the line number
                 /* TODO: your code goes here */
+                int star_tag_count = 0;
 
+                for(int x = 0; x < line.length(); x++) {
+                    if (line.charAt(x) == '*') {
+                        star_tag_count = star_tag_count + 1;
+                    }
+                }
+                    int search_from_index = 0;
+                    for (int i = 0; i < star_tag_count; i++) {
+
+                        int star_index = line.indexOf('*', search_from_index);
+                        int space_index = line.indexOf('~', star_index);
+
+                        if (space_index == -1) {
+                            space_index = line.length();
+                        }
+
+                        String hiddenword = line.substring(star_index + 1, space_index);
+                        System.out.println("Hidden word in Line " +  + ": " + hiddenword);
+                        search_from_index = space_index;
+
+                    }
             }
             scanner.close();
         } catch (FileNotFoundException e) {
