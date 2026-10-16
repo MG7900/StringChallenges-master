@@ -25,10 +25,10 @@ public class C2_HiddenWordHardMode {
         try {
             File file = new File(fileName);
             Scanner scanner = new Scanner(file);
-
+            int line_number = 0;
             while (scanner.hasNextLine()) {
                 String line = scanner.nextLine();
-                int line_number = 0;
+                line_number = line_number + 1;
                 //add the line number
                 /* TODO: your code goes here */
                 int star_tag_count = 0;
@@ -49,10 +49,11 @@ public class C2_HiddenWordHardMode {
                         }
 
                         String hiddenword = line.substring(star_index + 1, space_index);
-                        System.out.println("Hidden word in Line " +  + ": " + hiddenword);
+                        System.out.println("Hidden word in Line " + line_number + ": " + hiddenword);
                         search_from_index = space_index;
 
                     }
+
             }
             scanner.close();
         } catch (FileNotFoundException e) {
