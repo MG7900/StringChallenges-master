@@ -26,6 +26,9 @@ public class B_HashtagExtractor {
                 hash_tag_count = hash_tag_count + 1;
             }
         }
+
+        //above looping for hashtagsw
+
         int search_from_index = 0;
         for (int i = 0; i < hash_tag_count; i++){
 
@@ -39,6 +42,7 @@ public class B_HashtagExtractor {
             hashtag = post.substring(hash_index, space_index);
             System.out.println("Hashtag " + (i + 1) + ": " + hashtag);
             search_from_index = space_index;
+            //so that the next iteration starts after the position where the previous hashtag was found
         }
     }
 
