@@ -22,8 +22,38 @@ public class D_PasswordValidator {
 
     public boolean isValidPassword(String password) {
         /* TODO: your code goes here */
+        boolean password_valid = false;
+        boolean contain_number = false;
+        boolean contain_uppercase = false;
+        for(int x = 0; x < password.length(); x++){
+                if (Character.isDigit(password.charAt(x))) {
+                    //found isDigit online, w3schools
+                    //https://docs.oracle.com/javase/8/docs/api/java/lang/Character.html
+                    contain_number = true;
+                    break;
+                }
+        }
 
-        return true; // this is a temporary return to avoid errors
+        for(int x = 0; x < password.length(); x++){
+            if (Character.isUpperCase(password.charAt(x))) {
+                //found isDigit online, w3schools
+                //https://docs.oracle.com/javase/8/docs/api/java/lang/Character.html
+                contain_uppercase = true;
+                break;
+            }
+        }
+
+        String new_password = password.toLowerCase();
+        boolean no_password = new_password.matches("password");
+
+        if(contain_number && contain_uppercase){
+            if(no_password){
+                password_valid = false;
+            } else {
+                password_valid = true;
+            }
+        }
+        return password_valid; // this is a temporary return to avoid errors
     }
 
 }
