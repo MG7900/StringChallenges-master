@@ -53,6 +53,9 @@ public class D_PasswordValidator {
                 password_valid = true;
             }
         }
+
+
+
         return password_valid; // this is a temporary return to avoid errors
     }
 
