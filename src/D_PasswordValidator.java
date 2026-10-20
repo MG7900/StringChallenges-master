@@ -43,8 +43,7 @@ public class D_PasswordValidator {
             }
         }
 
-        String new_password = password.toLowerCase();
-        boolean no_password = new_password.matches("password");
+        boolean no_password = password.matches("password");
 
         if(contain_number && contain_uppercase){
             if(no_password){
