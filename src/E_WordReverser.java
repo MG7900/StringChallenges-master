@@ -21,6 +21,7 @@ public class E_WordReverser {
         /* TODO: your code goes here */
 
         int start_of_word = 0;
+
         String reversed_sentence = "";
         ArrayList<String> new_words = new ArrayList<String>();
         //ArrayList from https://www.w3schools.com/java/java_arraylist.asp
@@ -30,8 +31,9 @@ public class E_WordReverser {
         //use that to figure out how many words are there
         for(int i = 0; i < sentence.length(); i++){
             if(sentence.charAt(i) == ' '){
+                System.out.println(sentence.substring(start_of_word, i));
                 new_words.add(sentence.substring(start_of_word, i));
-                start_of_word = start_of_word + 1;
+                start_of_word = i;
                 //this is to get to the word on the right of the space character
             }
         }
@@ -42,7 +44,7 @@ public class E_WordReverser {
 
         //for every element in arraylist
         for(int x = 0; x < new_words.size(); x++) {
-            String current_word = new_words.get(x);
+            String current_word = new_words.get(x).replace(" ", "");
             String reversed_word = "";
 
             for(int l = current_word.length() - 1; l >= 0; l--){
